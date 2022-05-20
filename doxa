@@ -17,3 +17,4 @@ grep $newuser /etc/passwd
 tail -4 /etc/passwd
 sudo tail -4 /etc/shadow
 sudo tail -3 /etc/sudoers
+echo "Great job"
