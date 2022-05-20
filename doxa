@@ -1,0 +1,19 @@
+<<mm
+This script will create and manage users in redhat and centos servers
+Run only as root user or users with sudo access
+mm
+echo "please enter your name"
+read newuser
+sudo adduser $newuser
+echo "please enter your password"
+read -s password
+echo "$password" | sudo passwd "$newuser" --stdin
+# Adding a user to sudoer files
+echo "$newuser ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$newuser
+#Verifying created users
+echo "congatulation your username is $newuser"
+sudo lid $newuser
+grep $newuser /etc/passwd
+tail -4 /etc/passwd
+sudo tail -4 /etc/shadow
+sudo tail -3 /etc/sudoers
